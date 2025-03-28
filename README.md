@@ -1,60 +1,57 @@
-# Honeypot PHP - Proteção contra bots e intrusos
+# PHP Honeypot - Protection against bots and intruders
 
-Este é um script simples de honeypot desenvolvido em PHP, projetado para detectar e registrar acessos suspeitos e tentativas de acesso maliciosas em uma aplicação web. Ele armazena informações valiosas sobre cada tentativa, como o endereço IP, a geolocalização do visitante, o agente de usuário e outros cabeçalhos, ajudando a proteger seu sistema contra bots e intrusos.
+This is a simple PHP honeypot script designed to detect and log suspicious access and malicious access attempts to a web application. It stores valuable information about each attempt, such as the IP address, visitor's geolocation, user agent, and other headers, helping to protect your system against bots and intruders.
 
-🍯 **O que é um Honeypot?**
+🍯 **What is a Honeypot?**
 
-Um honeypot é uma técnica de segurança utilizada para enganar bots e atacantes, fazendo com que eles interajam com recursos falsos ou inutilizáveis, enquanto o sistema real permanece seguro e monitorado. No caso deste script, ele registra informações sobre os visitantes que tentam acessar áreas críticas do site.
-
----
-
-### Funcionalidades:
-- **Registro de IP:** Armazena o endereço IP de cada tentativa de acesso.
-- **Geolocalização:** Obtém informações sobre a localização geográfica do visitante, como país e cidade.
-- **Detecção de Proxy e VPN:** Identifica se o visitante está usando um proxy ou VPN.
-- **Contagem de tentativas:** Conta quantas vezes um IP tentou acessar a página.
-- **Logs detalhados:** Registra o agente de usuário e cabeçalhos HTTP para análise.
+A honeypot is a security technique used to trick bots and attackers into interacting with fake or unusable resources, while the real system remains secure and monitored. In the case of this script, it logs information about visitors trying to access critical areas of the website.
 
 ---
 
-### Como funciona:
-
-1. **Acessos à Página:** O script é configurado para monitorar acessos à página `/wp-admin.php` (mas pode ser adaptado para outras URLs).
-2. **Geolocalização do IP:** Usando a API `ip-api.com`, o script tenta descobrir a localização do visitante.
-3. **Verificação de Proxy e VPN:** Também verifica se o visitante está usando serviços de proxy ou VPN.
-4. **Contagem de Acessos:** Mantém um registro de quantas vezes o mesmo IP tentou acessar a página monitorada.
-
----
-
-### Como usar:
-
-1. **Crie o arquivo de log:** Assegure-se de que o caminho para o arquivo de log (`honeypot_log.txt`) seja seguro e esteja fora do diretório `public_html` (se possível).
-   
-2. **Coloque o script no seu servidor:** Coloque este código PHP em uma página do seu site que você deseja monitorar. No exemplo acima, ele está configurado para monitorar a página `/wp-admin.php`.
-
-3. **Verifique os logs:** O arquivo de log gerado (`honeypot_log.txt`) armazenará todas as tentativas de acesso com informações detalhadas sobre cada visitante.
+### Features:
+- **IP Logging:** Stores the IP address of each access attempt.
+- **Geolocation:** Obtains information about the visitor's geographic location, such as country and city.
+- **Proxy and VPN Detection:** Identify if the visitor is using a proxy or VPN.
+- **Attempt Count:** Count how many times an IP attempted to access the page.
+- **Detailed Logs:** Records the user agent and HTTP headers for analysis.
 
 ---
 
-### Exemplo de entrada no log:
+### How it works:
 
-Page: /wp-admin.php 2025-03-28 10:00:00 - IP: 192.168.1.1 - País: Brasil - Cidade: São Paulo - ISP: Vivo - Proxy: NÃO - VPN: NÃO - Acessos: 2 - Agent: Mozilla/5.0 (...) - Headers: { "Header1": "Value1", "Header2": "Value2" }
-
-
----
-
-### Considerações:
-- **Segurança:** Este script ajuda a identificar padrões de comportamento e pode ser útil para proteger seu sistema de bots e outras ameaças.
-- **Armazenamento de Dados:** Tenha em mente que o armazenamento de informações pessoais, como endereços IP, pode estar sujeito a regulamentações locais de privacidade, como o GDPR.
-- **Melhorias:** Você pode expandir o script para adicionar mais camadas de verificação, como captchas ou bloqueios automáticos para IPs suspeitos.
+1. **Page Accesses:** The script is configured to monitor accesses to the `/wp-admin.php` page (but can be adapted to other URLs).
+2. **IP Geolocation:** Using the `ip-api.com` API, the script tries to discover the visitor's location.
+3. **Proxy and VPN Check:** Also checks if the visitor is using proxy or VPN services.
+4. **Access Count:** Keeps a record of how many times the same IP attempted to access the monitored page.
 
 ---
 
+### How to use:
+
+1. **Create the log file:** Make sure the path to the log file (`honeypot_log.txt`) is secure and outside the `public_html` directory (if possible).
+
+2. **Place the script on your server:** Place this PHP code on a page of your website that you want to monitor. In the example above, it is set to monitor the `/wp-admin.php` page.
+
+3. **Check the logs:** The generated log file (`honeypot_log.txt`) will store all access attempts with detailed information about each visitor.
+
+---
+
+### Example log entry:
+
+Page: /wp-admin.php 2025-03-28 10:00:00 - IP: 192.168.1.1 - Country: Brazil - City: São Paulo - ISP: Vivo - Proxy: NO - VPN: NO - Accesses: 2 - Agent: Mozilla/5.0 (...) - Headers: { "Header1": "Value1", "Header2": "Value2" }
+
+---
+
+### Considerations:
+- **Security:** This script helps identify behavior patterns and can be useful to protect your system from bots and other threats.
+- **Data Storage:** Keep in mind that the storage of personal information, such as IP addresses, may be subject to local privacy regulations, such as GDPR.
+- **Improvements:** You can expand the script to add more layers of verification, such as captchas or automatic blocking for suspicious IPs.
+
+---
 ### Emojis: 🍯🐝
 
-Utilize este honeypot como uma "armadilha doce" para pegar os bots e intrusos enquanto mantém seu sistema seguro!
+Use this honeypot as a "sweet trap" to catch bots and intruders while keeping your system secure!
 
 ---
-
 ### License:
-Este script é fornecido gratuitamente para fins educativos e de segurança, sem garantia de qualquer tipo.
+This script is provided free of charge for educational and security purposes, without warranty of any kind.
